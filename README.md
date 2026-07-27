@@ -8,22 +8,21 @@ si apre `index.html` e funziona.
 
 ---
 
-## Da fare prima di pubblicare
+## Contatti e configurazione
 
-### Il numero WhatsApp
-
-In `assets/js/main.js`, prime righe:
+Numero WhatsApp e profilo Instagram stanno in cima a `assets/js/main.js`:
 
 ```js
 var CONFIG = {
-  WHATSAPP: "393000000000",   // <-- numero reale, formato internazionale
+  WHATSAPP: "393386195303",          // +39 338 619 5303
   INSTAGRAM: "filo_personalcoach"
 };
 ```
 
-Formato internazionale senza `+` e senza spazi (es. `393401234567`).
-Il numero alimenta tutti i pulsanti WhatsApp della pagina: hero, menu,
-form della guida, footer e CTA fissa mobile.
+Il numero va in formato internazionale, **senza `+` e senza spazi**: è
+quello che richiedono i link `wa.me`. Da lì alimenta tutti i pulsanti
+WhatsApp della pagina — hero, menu, form della guida, footer e CTA fissa
+su mobile — quindi per cambiarlo basta questa riga.
 
 ---
 

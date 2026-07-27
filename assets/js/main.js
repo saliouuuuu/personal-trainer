@@ -13,12 +13,12 @@
   "use strict";
 
   /* ---------- CONFIGURAZIONE ----------
-     Sostituisci WHATSAPP con il numero reale di Filippo,
-     in formato internazionale senza "+" e senza spazi.
-     Esempio: "393401234567"
+     Numero in formato internazionale, senza "+" e senza spazi:
+     è il formato richiesto dai link wa.me.
+     Alimenta tutti i pulsanti WhatsApp della pagina.
   ------------------------------------- */
   var CONFIG = {
-    WHATSAPP: "393000000000",
+    WHATSAPP: "393386195303",          // +39 338 619 5303
     INSTAGRAM: "filo_personalcoach"
   };
 
