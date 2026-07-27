@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Filippo Montagna">
+  <defs>
+    <linearGradient id="iris" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#DCFF7A"/>
+      <stop offset="55%"  stop-color="#C8FF2E"/>
+      <stop offset="100%" stop-color="#9BD400"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="14" fill="#0B0C0B"/>
+
+  <!-- Occhio: richiamo al logo verde-giallo del brand -->
+  <path d="M10 32c6.5-9.5 13.6-14.2 22-14.2S47.5 22.5 54 32c-6.5 9.5-13.6 14.2-22 14.2S16.5 41.5 10 32Z"
+        fill="none" stroke="url(#iris)" stroke-width="3.2" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="7.6" fill="url(#iris)"/>
+  <circle cx="32" cy="32" r="3" fill="#0B0C0B"/>
+</svg>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Filippo Montagna — Personal Coach</title>
+<meta name="description" content="Filippo Montagna, istruttore di fitness e sport, laureando SUISM. Programmi di allenamento su misura, prevenzione infortuni e mobilità. Il tuo cambiamento inizia da un allenamento.">
+<meta name="theme-color" content="#0B0C0B">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Filippo Montagna — Personal Coach">
+<meta property="og:description" content="Allenamento su misura, senza scorciatoie. Il tuo cambiamento inizia da un allenamento.">
+<meta property="og:image" content="assets/img/filippo-hero.jpg">
+<meta property="og:locale" content="it_IT">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/anton-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Gli stati "nascosti" delle animazioni valgono solo se il JS è attivo:
+     senza JS la pagina resta interamente leggibile invece di apparire vuota. -->
+<script>document.documentElement.classList.add("js");</script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#chi-sono">Vai al contenuto</a>
+
+<!-- ============================================================
+     NAV — hamburger minimal + overlay glass
+     ============================================================ -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="Filippo Montagna, home">
+    <span class="nav__mark" aria-hidden="true"></span>
+    <span class="nav__brandText">F. Montagna</span>
+  </a>
+
+  <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">
+    <span class="burger__box" aria-hidden="true">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </span>
+  </button>
+</header>
+
+<nav class="menu" id="menu" aria-hidden="true">
+  <div class="menu__inner">
+    <ul class="menu__list">
+      <li><a href="#chi-sono"><span class="menu__num">01</span> Chi sono</a></li>
+      <li><a href="#metodo"><span class="menu__num">02</span> Il metodo</a></li>
+      <li><a href="#aree"><span class="menu__num">03</span> Aree di lavoro</a></li>
+      <li><a href="#guida"><span class="menu__num">04</span> Guida gratuita</a></li>
+      <li><a href="#contatti"><span class="menu__num">05</span> Contatti</a></li>
+    </ul>
+    <div class="menu__foot">
+      <a class="menu__social" href="https://instagram.com/filo_personalcoach" target="_blank" rel="noopener">@filo_personalcoach</a>
+      <a class="menu__social" data-wa href="#">Scrivimi su WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="hero__media" aria-hidden="true">
+    <img class="hero__img" id="heroImg"
+         src="assets/img/filippo-hero.jpg"
+         data-fallback="assets/img/hero-placeholder.svg"
+         alt="" decoding="async" fetchpriority="high">
+    <div class="hero__grain"></div>
+    <div class="hero__scrim"></div>
+  </div>
+
+  <div class="hero__content">
+    <p class="pill glass" data-hero="1">
+      <span class="pill__dot" aria-hidden="true"></span>
+      Istruttore di fitness e sport<span class="pill__more"> · Laureando SUISM</span>
+    </p>
+
+    <h1 class="hero__name">
+      <span class="mask"><span class="mask__in" data-hero="2">FILIPPO</span></span>
+      <span class="mask"><span class="mask__in mask__in--accent" data-hero="3">MONTAGNA</span></span>
+    </h1>
+
+    <p class="hero__tagline" data-hero="4">Il tuo cambiamento inizia da un allenamento.</p>
+
+    <div class="hero__actions" data-hero="5">
+      <a class="btn btn--solid" data-wa href="#">Prenota una call</a>
+      <a class="btn btn--ghost" href="#metodo">Scopri il metodo</a>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#chi-sono" data-hero="6" aria-label="Scorri alla sezione Chi sono">
+    <span class="hero__scrollLine" aria-hidden="true"></span>
+    <span class="hero__scrollText">Scorri</span>
+  </a>
+</section>
+
+<main>
+
+<!-- ============================================================
+     CHI SONO — vetro smerigliato su foto sfocata
+     ============================================================ -->
+<section class="about" id="chi-sono">
+  <div class="about__bg" aria-hidden="true">
+    <img class="about__bgImg" src="assets/img/filippo-hero.jpg" data-fallback="assets/img/hero-placeholder.svg" alt="" loading="lazy" decoding="async">
+  </div>
+
+  <div class="wrap">
+    <div class="glassbox" data-reveal>
+      <div class="about__head">
+        <p class="eyebrow">01 — Chi sono</p>
+        <h2 class="h2">Un lavoro serio,<br><span class="accent">costruito su di te.</span></h2>
+      </div>
+
+      <div class="about__text">
+        <p>Sono Filippo, istruttore di fitness e sport e laureando SUISM in Scienze delle Attività Motorie e Sportive. Quello che studio ogni giorno — anatomia, fisiologia, teoria dell'allenamento — è la base di tutto ciò che ti propongo: niente formule copiate, niente promesse da trenta giorni.</p>
+
+        <p>Sono all'inizio del mio percorso da coach e lo dico apertamente, perché è anche il motivo per cui posso darti una cosa che altrove è rara: tempo e attenzione reali. Poche persone seguite, ognuna con un programma scritto per lei — i tuoi orari, il tuo punto di partenza, i fastidi che ti porti dietro, quello che ti diverte fare e quello che proprio non sopporti.</p>
+
+        <p>Il mio approccio è semplice: l'allenamento funziona quando è sostenibile. Preferisco farti eseguire bene tre esercizi che farti arrivare a dieci fatti male. Prima costruiamo il movimento, poi ci mettiamo il carico. Da lì in avanti, è solo questione di costanza — e su quella lavoriamo insieme.</p>
+      </div>
+
+      <p class="signature">Il cambiamento parte da qui.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     IL METODO — 4 step animati in sequenza
+     ============================================================ -->
+<section class="method" id="metodo">
+  <div class="wrap">
+    <header class="secHead" data-reveal>
+      <p class="eyebrow">02 — Il metodo</p>
+      <h2 class="h2">Quattro passi,<br><span class="accent">nessuna scorciatoia.</span></h2>
+    </header>
+
+    <ol class="steps">
+      <li class="step" data-reveal data-delay="1">
+        <span class="step__num" aria-hidden="true">01</span>
+        <div class="step__body">
+          <h3 class="step__title">Valutazione iniziale</h3>
+          <p>Partiamo da dove sei davvero: storia sportiva, mobilità, schemi di movimento, infortuni passati e tempo che puoi realmente dedicare. Un'ora onesta che vale più di qualsiasi scheda pronta.</p>
+        </div>
+      </li>
+
+      <li class="step" data-reveal data-delay="2">
+        <span class="step__num" aria-hidden="true">02</span>
+        <div class="step__body">
+          <h3 class="step__title">Programma su misura</h3>
+          <p>Costruisco un piano sulla tua vita, non su un modello: giorni, durata delle sedute, attrezzatura disponibile — a casa o in palestra. Progressioni chiare, così sai sempre cosa fare e perché.</p>
+        </div>
+      </li>
+
+      <li class="step" data-reveal data-delay="3">
+        <span class="step__num" aria-hidden="true">03</span>
+        <div class="step__body">
+          <h3 class="step__title">Allenamento guidato</h3>
+          <p>Ti seguo sull'esecuzione, che sia in presenza o a distanza. La tecnica viene prima dell'intensità: è così che i risultati arrivano e restano, senza pagare il conto in fastidi e stop forzati.</p>
+        </div>
+      </li>
+
+      <li class="step" data-reveal data-delay="4">
+        <span class="step__num" aria-hidden="true">04</span>
+        <div class="step__body">
+          <h3 class="step__title">Monitoraggio progressi</h3>
+          <p>Misuriamo quello che conta e aggiorniamo il programma di conseguenza. Se qualcosa non funziona, si cambia — con un criterio, non a sensazione.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================================================
+     AREE DI LAVORO
+     ============================================================ -->
+<section class="areas" id="aree">
+  <div class="wrap">
+    <header class="secHead" data-reveal>
+      <p class="eyebrow">03 — Aree di lavoro</p>
+      <h2 class="h2">Su cosa<br><span class="accent">lavoriamo insieme.</span></h2>
+    </header>
+
+    <div class="cards">
+      <article class="card glass" data-reveal data-delay="1" tabindex="0">
+        <span class="card__glow" aria-hidden="true"></span>
+        <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6M20 9v6M7 6v12M17 6v12M7 12h10"/></svg>
+        <h3 class="card__title">Corpo libero &amp; Total Body</h3>
+        <p>Allenamenti a corpo libero e full body che sfruttano quello che hai: pochi attrezzi, molta qualità di esecuzione. Forza, controllo e condizionamento con progressioni graduali.</p>
+      </article>
+
+      <article class="card glass" data-reveal data-delay="2" tabindex="0">
+        <span class="card__glow" aria-hidden="true"></span>
+        <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 21v-4M3 12h4M21 12h-4M6 6l2.5 2.5M18 18l-2.5-2.5M6 18l2.5-2.5M18 6l-2.5 2.5"/><circle cx="12" cy="12" r="2.5"/></svg>
+        <h3 class="card__title">Prevenzione infortuni &amp; mobilità</h3>
+        <p>Lavoro sulle articolazioni che ti bloccano e sui compensi che ti porti dietro. Mobilità, stabilità e rinforzo mirato per allenarti a lungo senza fermarti ogni due mesi.</p>
+      </article>
+
+      <article class="card glass" data-reveal data-delay="3" tabindex="0">
+        <span class="card__glow" aria-hidden="true"></span>
+        <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5a1 1 0 0 1 1-1h11l4 4v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1Z"/><path d="M15 4v5h5M8 13h8M8 16.5h5"/></svg>
+        <h3 class="card__title">Programmi su misura</h3>
+        <p>Una scheda scritta per te e aggiornata nel tempo, con obiettivi realistici e verificabili. Ricomposizione, forza, ripresa dopo uno stop o semplicemente rimettersi in moto.</p>
+      </article>
+
+      <article class="card glass" data-reveal data-delay="4" tabindex="0">
+        <span class="card__glow" aria-hidden="true"></span>
+        <svg class="card__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2.5 7.5 12 12l9.5-4.5L12 3Z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg>
+        <h3 class="card__title">Consulenza tecnica SUISM</h3>
+        <p>Un confronto tecnico su esecuzione, programmazione e gestione dei carichi, con il metodo che sto costruendo sul percorso universitario. Utile anche se ti alleni già da solo.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUIDA GRATUITA
+     ============================================================ -->
+<section class="guide" id="guida">
+  <div class="wrap">
+    <div class="guide__box glass" data-reveal>
+      <div class="guide__left">
+        <p class="eyebrow">04 — Risorsa gratuita</p>
+        <h2 class="h2 h2--sm">Da dove partire<br><span class="accent">con l'allenamento</span></h2>
+        <p class="guide__lead">Una guida breve in PDF per chi vuole iniziare e non sa da che parte prendere la cosa. Nessuna teoria inutile: solo le decisioni che contano nelle prime settimane.</p>
+
+        <ul class="guide__list">
+          <li data-reveal data-delay="1">Come allenarti quando hai <strong>poco tempo</strong></li>
+          <li data-reveal data-delay="2">Cosa cambia tra <strong>casa e palestra</strong> (e cosa no)</li>
+          <li data-reveal data-delay="3">Come comportarti con <strong>dolori e fastidi</strong> ricorrenti</li>
+          <li data-reveal data-delay="4">Da dove iniziare se sei <strong>principiante assoluto</strong></li>
+        </ul>
+      </div>
+
+      <div class="guide__right">
+        <div class="guide__cover" aria-hidden="true">
+          <span class="guide__coverTag">PDF · Gratuito</span>
+          <span class="guide__coverTitle">DA DOVE<br>PARTIRE</span>
+          <span class="guide__coverSub">Guida all'allenamento<br>— F. Montagna</span>
+        </div>
+
+        <form class="guide__form" id="guideForm" novalidate>
+          <label class="field">
+            <span class="field__label">Il tuo nome</span>
+            <input type="text" name="nome" id="guideName" placeholder="Come ti chiami?" autocomplete="given-name" required>
+          </label>
+
+          <label class="field">
+            <span class="field__label">Il tuo punto di partenza</span>
+            <select name="livello" id="guideLevel">
+              <option value="Sono principiante assoluto">Principiante assoluto</option>
+              <option value="Ho poco tempo per allenarmi">Ho poco tempo</option>
+              <option value="Mi alleno a casa">Mi alleno a casa</option>
+              <option value="Mi alleno in palestra">Mi alleno in palestra</option>
+              <option value="Ho dolori o fastidi ricorrenti">Ho dolori o fastidi</option>
+            </select>
+          </label>
+
+          <button class="btn btn--solid btn--full" type="submit">Richiedi la guida</button>
+          <p class="guide__note">Ti apro WhatsApp con il messaggio già pronto: ti mando il PDF appena leggo.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     CONTATTI / FOOTER
+     ============================================================ -->
+<footer class="foot" id="contatti">
+  <div class="wrap">
+    <div class="foot__cta" data-reveal>
+      <p class="eyebrow">05 — Iniziamo</p>
+      <h2 class="foot__title">PRONTO A<br><span class="accent">PARTIRE?</span></h2>
+      <p class="foot__lead">Raccontami dove sei adesso e dove vorresti arrivare. Ti rispondo io, di persona, con una proposta concreta — senza impegno.</p>
+
+      <a class="btn btn--solid btn--lg" data-wa href="#">
+        <svg class="btn__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A10.4 10.4 0 0 0 3.2 16.1L2 22l6.1-1.2A10.4 10.4 0 1 0 20.5 3.5Z"/><path d="M8.4 7.7c.2-.5.4-.5.7-.5h.6c.2 0 .5 0 .7.5l.8 2c.1.3 0 .5-.1.7l-.5.6c-.2.2-.3.4-.1.7a7.6 7.6 0 0 0 3.4 3c.3.2.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.3.5.5v.7c0 .8-.7 1.6-1.6 1.7-.6.1-1.3.1-3.4-.8a11.7 11.7 0 0 1-5.4-5.2c-.8-1.6-.7-2.7-.6-3.3a1.9 1.9 0 0 1 1.2-1.5Z"/></svg>
+        Scrivimi su WhatsApp
+      </a>
+
+      <a class="foot__ig" href="https://instagram.com/filo_personalcoach" target="_blank" rel="noopener">
+        <svg class="foot__igIc" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+        @filo_personalcoach
+      </a>
+    </div>
+
+    <div class="foot__bar">
+      <p class="foot__name">FILIPPO <span class="accent">MONTAGNA</span></p>
+      <p class="foot__meta">Personal Coach · Istruttore di fitness e sport · Laureando SUISM</p>
+      <p class="foot__copy">© <span id="year">2026</span> Filippo Montagna. Tutti i diritti riservati.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- CTA fissa mobile -->
+<a class="stickyCta" data-wa href="#" aria-label="Scrivimi su WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A10.4 10.4 0 0 0 3.2 16.1L2 22l6.1-1.2A10.4 10.4 0 1 0 20.5 3.5Z"/><path d="M8.4 7.7c.2-.5.4-.5.7-.5h.6c.2 0 .5 0 .7.5l.8 2c.1.3 0 .5-.1.7l-.5.6c-.2.2-.3.4-.1.7a7.6 7.6 0 0 0 3.4 3c.3.2.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l1.9.9c.3.1.5.3.5.5v.7c0 .8-.7 1.6-1.6 1.7-.6.1-1.3.1-3.4-.8a11.7 11.7 0 0 1-5.4-5.2c-.8-1.6-.7-2.7-.6-3.3a1.9 1.9 0 0 1 1.2-1.5Z"/></svg>
+  <span>Scrivimi</span>
+</a>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
