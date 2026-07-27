@@ -1,7 +1,7 @@
 # Filippo Montagna — Personal Coach
 
-Landing page one-page per Filippo Montagna, istruttore di fitness e sport,
-laureando SUISM.
+Landing page one-page per Filippo Montagna, chinesiologo e preparatore
+atletico.
 
 HTML / CSS / JS puro, mobile-first, nessun framework e nessun processo di build:
 si apre `index.html` e funziona.
