@@ -357,17 +357,42 @@ body.is-locked .nav {
   background: var(--ink);
   isolation: isolate;
 }
-.hero__media { position: absolute; inset: 0; z-index: -1; }
-.hero__img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: 50% 28%;
-  transform: scale(1.06);
+
+/* Ambiente: la foto già sfocata e scurita in fase di build.
+   Il segnaposto resta come secondo livello, se la foto mancasse. */
+.hero__bg {
+  position: absolute; inset: 0;
+  z-index: 0;
+  background-image: url("../img/filippo-bg.jpg"), url("../img/hero-placeholder.svg");
+  background-size: cover;
+  background-position: 50% 30%;
+  transform: scale(1.08);
   will-change: transform;
+}
+
+/* Il soggetto scontornato: davanti al nome, con ombra portata che ne
+   segue il profilo (drop-shadow lavora sull'alpha, non sul riquadro). */
+.hero__cut {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  right: -4%;
+  height: 48svh;
+  width: auto;
+  pointer-events: none;   /* non deve rubare i clic ai pulsanti */
+  filter:
+    drop-shadow(0 22px 45px rgba(0, 0, 0, .85))
+    drop-shadow(0 4px 10px rgba(0, 0, 0, .55))
+    drop-shadow(0 0 34px rgba(200, 255, 46, .13));
+  /* La figura sta sopra lo scrim, quindi in fondo verrebbe troncata di
+     netto e in piena luce: la si dissolve nel buio prima del bordo. */
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, rgba(0, 0, 0, .45) 90%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 72%, rgba(0, 0, 0, .45) 90%, transparent 100%);
 }
 /* Grana fine: dà "pellicola" alla foto invece della plastica digitale */
 .hero__grain {
   position: absolute; inset: 0;
+  z-index: 1;
   pointer-events: none;
   opacity: .16;
   mix-blend-mode: overlay;
@@ -376,12 +401,22 @@ body.is-locked .nav {
 /* Scrim graduale dal basso — leggibilità del testo */
 .hero__scrim {
   position: absolute; inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background:
-    linear-gradient(to top, var(--ink) 2%, rgba(11, 12, 11, .92) 18%, rgba(11, 12, 11, .55) 45%, rgba(11, 12, 11, .18) 70%, rgba(11, 12, 11, .55) 100%),
-    radial-gradient(120% 80% at 50% 100%, rgba(0, 0, 0, .55), transparent 60%);
+    linear-gradient(to top, var(--ink) 2%, rgba(11, 12, 11, .92) 18%, rgba(11, 12, 11, .62) 45%, rgba(11, 12, 11, .35) 70%, rgba(11, 12, 11, .6) 100%),
+    radial-gradient(120% 80% at 50% 100%, rgba(0, 0, 0, .6), transparent 60%);
 }
 
+/* Nessun z-index qui: il contenitore non deve creare un contesto di
+   impilamento, altrimenti il nome non potrebbe passare dietro la figura
+   mentre i pulsanti le restano davanti. */
 .hero__content { position: relative; width: 100%; max-width: var(--maxw); margin: 0 auto; }
+
+.hero__name     { position: relative; z-index: 2; }   /* dietro la figura */
+.pill,
+.hero__tagline,
+.hero__actions  { position: relative; z-index: 4; }   /* davanti alla figura */
 
 /* Pill glassmorphism */
 .pill {
@@ -397,24 +432,13 @@ body.is-locked .nav {
   color: rgba(255, 255, 255, .9);
   margin-bottom: 26px;
 }
-.pill__dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--lime);
-  box-shadow: 0 0 0 0 var(--lime-glow);
-  animation: pulse 2.6s var(--ease) infinite;
-}
-@keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(200, 255, 46, .5); }
-  70%  { box-shadow: 0 0 0 9px rgba(200, 255, 46, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(200, 255, 46, 0); }
-}
-
 /* Nome — mask reveal */
 .hero__name {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(3.6rem, 19vw, 12.5rem);
+  /* Misurato sul mobile: il cognome deve restare leggibile per intero,
+     con la testa che sporge appena oltre la "A" finale. */
+  font-size: clamp(2.9rem, 15vw, 6rem);
   line-height: .84;
   letter-spacing: -.005em;
   text-transform: uppercase;
@@ -432,11 +456,12 @@ body.is-locked .nav {
   font-size: clamp(1rem, 3.4vw, 1.28rem);
   font-weight: 300;
   color: rgba(255, 255, 255, .85);
-  max-width: 34ch;
+  max-width: 21ch;          /* su mobile non deve correre sopra il viso */
   margin-bottom: 34px;
   border-left: 2px solid var(--lime);
   padding-left: 16px;
 }
+@media (min-width: 640px) { .hero__tagline { max-width: 34ch; } }
 /* Sotto i 640px il claim completo manderebbe la pill a capo */
 @media (max-width: 639px) {
   .pill__more { display: none; }
@@ -467,6 +492,7 @@ body.is-locked .nav {
 /* Indicatore scroll */
 .hero__scroll {
   position: relative;
+  z-index: 4;
   align-self: flex-start;
   display: flex;
   align-items: center;
@@ -531,13 +557,14 @@ body.is-locked .nav {
   background: var(--ink);
   isolation: isolate;
 }
-.about__bg { position: absolute; inset: -10%; z-index: -1; }
-.about__bgImg {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: 50% 30%;
-  filter: blur(34px) saturate(75%) brightness(.42);
-  transform: scale(1.15);
+/* Sfondo già sfocato in fase di build: niente blur a runtime, che su
+   mobile pesa parecchio durante lo scorrimento. */
+.about__bg {
+  position: absolute; inset: -6%;
+  z-index: -1;
+  background-image: url("../img/filippo-bg.jpg"), url("../img/hero-placeholder.svg");
+  background-size: cover;
+  background-position: 50% 26%;
 }
 .about::after {
   content: "";
@@ -920,6 +947,11 @@ body.is-locked .nav {
   html { scroll-padding-top: 96px; }
 
   .hero { padding-bottom: 72px; }
+  /* Su desktop la figura sta a destra e il nome le corre dietro */
+  .hero__cut { right: 2%; height: 88svh; }
+  .hero__name { font-size: clamp(4rem, 11.5vw, 11rem); }
+  .hero__content { padding-right: 36%; }
+
   .about, .method, .areas, .guide { padding: 130px 0; }
   .foot { padding-top: 130px; }
 
@@ -960,9 +992,9 @@ body.is-locked .nav {
   .hero__tagline { max-width: 48ch; }  /* il claim sta su una riga sola */
 }
 
-/* Schermi larghi: la foto hero resta ancorata al soggetto */
-@media (min-aspect-ratio: 16/10) {
-  .hero__img { object-position: 50% 22%; }
+/* Schermi bassi e larghi: la figura non deve mangiarsi tutta l'altezza */
+@media (min-width: 900px) and (max-height: 760px) {
+  .hero__cut { height: 74svh; }
 }
 
 /* ============================================================

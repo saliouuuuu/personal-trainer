@@ -10,31 +10,7 @@ si apre `index.html` e funziona.
 
 ## Da fare prima di pubblicare
 
-Due cose sole, entrambe da cinque minuti.
-
-### 1. La foto dell'hero
-
-La pagina cerca **`assets/img/filippo-hero.jpg`**. Finché il file non c'è,
-mostra automaticamente un segnaposto grafico (sfondo scuro con la scritta
-"SEGNAPOSTO"): nessun riquadro rotto, ma è evidente che manca la foto.
-
-Basta salvare la foto con quel nome esatto in `assets/img/` — non serve
-toccare il codice.
-
-Indicazioni per lo scatto:
-
-- **Verticale o quadrato**, almeno 1600 px sul lato lungo.
-- Soggetto **leggermente sopra il centro**: il testo del nome sta in basso e
-  il gradiente scuro copre la parte inferiore dell'immagine.
-- Va benissimo la foto con maglietta bianca e sfondo alberi. Se serve
-  ricentrare il viso, si regola `object-position` in `assets/css/style.css`
-  (regola `.hero__img`, valore attuale `50% 28%`).
-- Comprimere sotto i ~400 KB (es. [squoosh.app](https://squoosh.app)),
-  altrimenti l'hero si carica lento da mobile.
-
-La stessa foto viene riusata, sfocata, come sfondo della sezione "Chi sono".
-
-### 2. Il numero WhatsApp
+### Il numero WhatsApp
 
 In `assets/js/main.js`, prime righe:
 
@@ -54,17 +30,52 @@ form della guida, footer e CTA fissa mobile.
 ## Struttura
 
 ```
-index.html                       pagina unica
-assets/css/style.css             stili + animazioni
-assets/js/main.js                interazioni (config in cima al file)
-assets/img/filippo-hero.jpg      <- da aggiungere
-assets/img/hero-placeholder.svg  segnaposto automatico
-assets/img/favicon.svg           occhio verde-lime, richiamo al logo
+index.html                          pagina unica
+assets/css/style.css                stili + animazioni
+assets/css/fonts.css                font locali
+assets/js/main.js                   interazioni (config in cima al file)
+assets/img/filippo-cutout.webp      soggetto scontornato, sta davanti al nome
+assets/img/filippo-bg.jpg           stessa foto sfocata, fa da ambiente
+assets/img/filippo-hero.jpg         foto piena (anteprima social)
+assets/img/sorgente/                foto originale, per rigenerare gli asset
+assets/img/hero-placeholder.svg     ripiego se le immagini mancassero
+assets/img/favicon.svg              occhio verde, richiamo al logo
+tools/prepara-foto.py               rigenera gli asset da una foto nuova
 ```
+
+## L'hero è a strati
+
+Dal fondo verso l'alto: ambiente sfocato → velature → **nome** → **figura
+scontornata** → pulsanti.
+
+La figura sta *davanti* al nome, con un'ombra portata che ne segue il
+profilo, così Filippo "sporge" dal testo. I pulsanti stanno davanti a lei:
+altrimenti finirebbero coperti e non sarebbero più cliccabili.
+
+Il contenitore `.hero__content` non ha `z-index` di proposito — se creasse
+un contesto di impilamento, il nome non potrebbe più passare dietro la
+figura mentre i pulsanti le restano davanti.
+
+### Cambiare la foto
+
+```bash
+pip install pillow rembg onnxruntime
+python3 tools/prepara-foto.py percorso/della/foto-nuova.jpg
+```
+
+Rigenera i tre file in `assets/img/`. Lo scontorno gira in locale (modello
+`u2net_human_seg`, scaricato al primo avvio): **la foto non viene inviata a
+nessun servizio esterno**.
+
+Serve uno scatto **verticale**, soggetto ben staccato dallo sfondo e
+inquadratura da mezzo busto. Dopo il cambio vale la pena ricontrollare
+l'inquadratura dell'hero: `.hero__cut` in `assets/css/style.css` regola
+altezza e sporgenza a destra, ed è tarata perché la testa superi appena la
+"A" finale di MONTAGNA senza coprire il cognome.
 
 ## Sezioni
 
-1. **Hero** — foto a piena altezza, nome enorme con reveal a mascherina
+1. **Hero** — figura scontornata davanti al nome, reveal a mascherina
    (`FILIPPO` bianco / `MONTAGNA` lime), badge glass, tagline, menu hamburger.
 2. **Chi sono** — box in vetro smerigliato sopra la foto sfocata, testo in
    prima persona, motto di chiusura.

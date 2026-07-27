@@ -27,24 +27,7 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ============================================================
-     1. Immagini con fallback
-     Se la foto reale non è ancora stata caricata nel repo,
-     mostra il placeholder grafico invece di un riquadro rotto.
-     ============================================================ */
-  (function imageFallback() {
-    $$("img[data-fallback]").forEach(function (img) {
-      var swap = function () {
-        var fb = img.getAttribute("data-fallback");
-        if (fb && img.src.indexOf(fb) === -1) img.src = fb;
-      };
-      img.addEventListener("error", swap);
-      // Immagine già fallita prima che lo script fosse attivo
-      if (img.complete && img.naturalWidth === 0) swap();
-    });
-  })();
-
-  /* ============================================================
-     2. Reveal del nome in hero
+     1. Reveal del nome in hero
      ============================================================ */
   (function heroIntro() {
     var start = function () {
@@ -64,7 +47,7 @@
   })();
 
   /* ============================================================
-     3. Scroll reveal
+     2. Scroll reveal
      ============================================================ */
   (function scrollReveal() {
     var items = $$("[data-reveal]");
@@ -87,7 +70,7 @@
   })();
 
   /* ============================================================
-     4. Menu overlay
+     3. Menu overlay
      ============================================================ */
   (function overlayMenu() {
     var burger = $("#burger");
@@ -139,7 +122,7 @@
   })();
 
   /* ============================================================
-     5. Nav compatta + CTA fissa allo scroll
+     4. Nav compatta + CTA fissa allo scroll
      ============================================================ */
   (function scrollChrome() {
     var nav = $("#nav");
@@ -163,20 +146,24 @@
   })();
 
   /* ============================================================
-     6. Parallasse leggera sulla foto hero
+     5. Parallasse leggera sulla foto hero
      ============================================================ */
   (function heroParallax() {
-    var img = $("#heroImg");
-    var hero = $(".hero");
-    if (!img || !hero || reduceMotion) return;
+    var bg = $(".hero__bg");
+    var cut = $("#heroCut");
+    if (!bg || reduceMotion) return;
     if (window.matchMedia("(hover: none)").matches) return; // niente parallasse su touch
 
+    // La figura si muove meno dello sfondo: dà profondità fra i due piani.
+    var baseCut = cut ? getComputedStyle(cut).transform : "none";
+    if (baseCut === "none") baseCut = "";
     var ticking = false;
 
     var update = function () {
       var y = window.pageYOffset;
       if (y < window.innerHeight) {
-        img.style.transform = "scale(1.06) translate3d(0," + (y * 0.16).toFixed(2) + "px,0)";
+        bg.style.transform = "scale(1.08) translate3d(0," + (y * 0.18).toFixed(2) + "px,0)";
+        if (cut) cut.style.transform = baseCut + " translate3d(0," + (y * 0.06).toFixed(2) + "px,0)";
       }
       ticking = false;
     };
@@ -189,7 +176,7 @@
   })();
 
   /* ============================================================
-     7. Card: alone che segue il puntatore + stato tap su mobile
+     6. Card: alone che segue il puntatore + stato tap su mobile
      ============================================================ */
   (function cardGlow() {
     var cards = $$(".card");
@@ -217,7 +204,7 @@
   })();
 
   /* ============================================================
-     8. Link WhatsApp
+     7. Link WhatsApp
      ============================================================ */
   var waLink = function (text) {
     return "https://wa.me/" + CONFIG.WHATSAPP + "?text=" + encodeURIComponent(text);
@@ -233,7 +220,7 @@
   })();
 
   /* ============================================================
-     9. Form guida -> WhatsApp precompilato
+     8. Form guida -> WhatsApp precompilato
      ============================================================ */
   (function guideForm() {
     var form = $("#guideForm");
@@ -266,7 +253,7 @@
   })();
 
   /* ============================================================
-     10. Anno corrente nel footer
+     9. Anno corrente nel footer
      ============================================================ */
   (function year() {
     var el = $("#year");

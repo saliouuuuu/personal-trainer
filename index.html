@@ -65,18 +65,14 @@
      HERO
      ============================================================ -->
 <section class="hero" id="top">
-  <div class="hero__media" aria-hidden="true">
-    <img class="hero__img" id="heroImg"
-         src="assets/img/filippo-hero.jpg"
-         data-fallback="assets/img/hero-placeholder.svg"
-         alt="" decoding="async" fetchpriority="high">
-    <div class="hero__grain"></div>
-    <div class="hero__scrim"></div>
-  </div>
+  <!-- Strati, dal fondo: ambiente sfocato -> velature -> nome -> figura
+       ritagliata. La figura sta DAVANTI al nome, i comandi davanti a lei. -->
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="hero__scrim" aria-hidden="true"></div>
 
   <div class="hero__content">
     <p class="pill glass" data-hero="1">
-      <span class="pill__dot" aria-hidden="true"></span>
       Istruttore di fitness e sport<span class="pill__more"> · Laureando SUISM</span>
     </p>
 
@@ -93,6 +89,9 @@
     </div>
   </div>
 
+  <img class="hero__cut" id="heroCut" src="assets/img/filippo-cutout.webp"
+       alt="Filippo Montagna" decoding="async" fetchpriority="high">
+
   <a class="hero__scroll" href="#chi-sono" data-hero="6" aria-label="Scorri alla sezione Chi sono">
     <span class="hero__scrollLine" aria-hidden="true"></span>
     <span class="hero__scrollText">Scorri</span>
@@ -105,9 +104,7 @@
      CHI SONO — vetro smerigliato su foto sfocata
      ============================================================ -->
 <section class="about" id="chi-sono">
-  <div class="about__bg" aria-hidden="true">
-    <img class="about__bgImg" src="assets/img/filippo-hero.jpg" data-fallback="assets/img/hero-placeholder.svg" alt="" loading="lazy" decoding="async">
-  </div>
+  <div class="about__bg" aria-hidden="true"></div>
 
   <div class="wrap">
     <div class="glassbox" data-reveal>
